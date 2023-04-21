@@ -1,3 +1,3 @@
 # AD340
- 
-![Shiba Gif](./shiba.gif) ![Shiba Gif](./shiba.gif) ![Shiba Gif](./shiba.gif)
+ Classwork for AD340 spring 2023
+![Toast Gif](./toast.gif) ![Click Gif](./click.gif) ![Shiba Gif](./shiba.gif)
