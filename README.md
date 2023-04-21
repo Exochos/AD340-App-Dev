@@ -1,3 +1,3 @@
 # AD340
  
-![Shiba Gif](images/shiba.gif)
+![Shiba Gif](./shiba.gif)
