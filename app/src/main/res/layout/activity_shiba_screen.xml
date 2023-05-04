@@ -14,7 +14,7 @@
         android:rotationY="0"
         android:textColor="@color/white"
         android:text="Jeremy Ward \n Shiba Inu Demo"
-        android:textSize="32dp"
+        android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -4,46 +4,45 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.myfirstkotlin.databinding.ActivityClickScreenBinding
 
 class ClickScreen : AppCompatActivity() {
+
+    private lateinit var binding: ActivityClickScreenBinding
+    private var value = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_click_screen)
 
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_click_screen)
 
-        val clickView = findViewById<TextView>(R.id.clickValue)
-        var value = clickView.text.toString().toInt()
+        binding.clickValue.text = value.toString()
 
-        Toast.makeText(applicationContext, value.toString(), Toast.LENGTH_SHORT).show()
-
-        val buttonIncrement: Button = findViewById(R.id.buttonIncrement)
-        buttonIncrement.setOnClickListener {
+        binding.buttonIncrement.setOnClickListener {
             val previousValue = value
             value++
-            clickView.text = value.toString()
-            val message = "Increment: " + previousValue + " -> " + value
+            binding.clickValue.text = value.toString()
+            val message = "Increment: $previousValue -> $value"
             Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
         }
 
-        val buttonDecrement: Button = findViewById(R.id.buttonDecrement)
-        buttonDecrement.setOnClickListener {
+        binding.buttonDecrement.setOnClickListener {
             val previousValue = value
             value--
-            clickView.text = value.toString()
-            val message = "Decrement: " + previousValue + " -> " + value
+            binding.clickValue.text = value.toString()
+            val message = "Decrement: $previousValue -> $value"
             Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
         }
 
-        val buttonReset: Button = findViewById(R.id.buttonReset)
-        buttonReset.setOnClickListener {
+        binding.buttonReset.setOnClickListener {
             val previousValue = value
-            value = 0;
-            clickView.text = value.toString()
-            Toast.makeText(applicationContext, "Reset from " + previousValue + " to 0", Toast.LENGTH_SHORT).show()
+            value = 0
+            binding.clickValue.text = value.toString()
+            Toast.makeText(applicationContext, "Reset from $previousValue to 0", Toast.LENGTH_SHORT).show()
         }
-        val buttonBack: Button = findViewById(R.id.button_back)
-        buttonBack.setOnClickListener {
+
+        binding.buttonBack.setOnClickListener {
             finish()
         }
     }
