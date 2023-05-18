@@ -21,9 +21,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, ClickScreen::class.java))
         }
         val button3: Button = findViewById(R.id.week3shiba)
-                button3.setOnClickListener {
+        button3.setOnClickListener {
             startActivity(Intent(this@MainActivity, ShibaScreen::class.java))
         }
+
+        val button4: Button = findViewById(R.id.week5recycler)
+        button4.setOnClickListener {
+            startActivity(Intent(this@MainActivity, RecyclerScreen::class.java))
+        }
+
     }
 
 }
