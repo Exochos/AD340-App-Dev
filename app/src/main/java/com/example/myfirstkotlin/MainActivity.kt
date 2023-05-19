@@ -29,7 +29,10 @@ class MainActivity : AppCompatActivity() {
         button4.setOnClickListener {
             startActivity(Intent(this@MainActivity, RecyclerScreen::class.java))
         }
-
+        val button5: Button = findViewById(R.id.week5recyclerpersonal)
+        button5.setOnClickListener {
+            startActivity(Intent(this@MainActivity, RecyclerPersonalScreen::class.java))
+        }
     }
 
 }

@@ -24,12 +24,10 @@ class NumberItem(val value: Int) {
 
 
 class NumberAdapter(private val numbers: List<NumberItem>) : RecyclerView.Adapter<NumberAdapter.NumberViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
         return NumberViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: NumberViewHolder, position: Int) {
         val numberItem = numbers[position]
         holder.bind(numberItem)

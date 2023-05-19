@@ -82,7 +82,7 @@
             android:textColor="@color/white"
             android:rotationY="0"
             android:layout_marginBottom="8dp"
-            android:text="Homework week 5"
+            android:text="Homework week+"
             android:textSize="26sp"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -98,7 +98,17 @@
             android:text="Recycler Assignment"
             app:layout_constraintEnd_toEndOf="@+id/viewWeek3"
             app:layout_constraintStart_toStartOf="@+id/viewWeek3" />
+        <Button
+            android:id="@+id/week5recyclerpersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2sp"
+            app:layout_constraintTop_toBottomOf="@+id/week5recycler"
+            android:text="Recycler Personal Assignment"
+            app:layout_constraintEnd_toEndOf="@+id/viewWeek3"
+            app:layout_constraintStart_toStartOf="@+id/viewWeek3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
