@@ -11,11 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Output SSH Key
+      - name: Install SSH Key
         run: |
-          echo "SSH Key:"
-          echo "${{ secrets.KEY }}"
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
       - name: Test SSH Connection and Execute whoami
-        run: |
-          echo "${{ secrets.KEY }}" | ssh -o StrictHostKeyChecking=no -i /dev/stdin deployuser@35.86.119.51 whoami
+        run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa deployuser@35.86.119.51 whoami
