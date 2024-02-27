@@ -1,26 +1,14 @@
-name: SSH Access Test Version 2.0
+name: SSH Access Test Version 2.1
 
 on: [push]
 
 jobs:
   ssh-test:
     runs-on: ubuntu-latest
-    environment: SSHTEST  # Specify the environment here
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install SSH Key
-        run: |
-          mkdir -p ~/.ssh/
-          echo "${{ secrets.DEPLOYUSERSSHKEY }}" > ~/.ssh/id_rsa  # Use the correct secret name
-          chmod 600 ~/.ssh/id_rsa
-          cat ~/.ssh/id_rsa
-          
-
+      - name: Test SSH Connection and Execute whoami
         env:
-          DEPLOYUSERSSHKEY: ${{ secrets.DEPLOYUSERSSHKEY }}
-
-      - name: Test SSH Connection
-        run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa deployuser@35.86.119.51 exit
+          DEPLOYUSERSSHKEY: ${{ secrets.SSHKEY }}
+        run: |
+          echo "$DEPLOYUSERSSHKEY" | ssh -o StrictHostKeyChecking=no -i /dev/stdin deployuser@35.86.119.51 whoami
