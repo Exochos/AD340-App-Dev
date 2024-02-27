@@ -16,8 +16,11 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{ secrets.DEPLOYUSERSSHKEY }}" > ~/.ssh/id_rsa  # Use the correct secret name
           chmod 600 ~/.ssh/id_rsa
+          cat ~/.ssh/id_rsa
+          ssh-keygen -l -f ~/.ssh/private.key
+
         env:
-          DEPLOYUSERSSHKEY: ${{ secrets.DEPLOYUSERSSHKEY }}  # Ensure this matches your secret's name
+          DEPLOYUSERSSHKEY: ${{ secrets.DEPLOYUSERSSHKEY }}
 
       - name: Test SSH Connection
         run: ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa deployuser@35.86.119.51 exit
