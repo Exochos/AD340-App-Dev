@@ -1,21 +1,16 @@
-name: SSH Access Test Version 2.3
+name: Print SSH Key for Debugging
 
 on: [push]
 
 jobs:
-  ssh-test:
+  print-ssh-key:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup SSH Key
+      - name: Print SSH Key
         env:
           DEPLOYUSERSSHKEY: ${{ secrets.SSHKEY }}
         run: |
-          mkdir -p ~/.ssh
-          echo "$DEPLOYUSERSSHKEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          cat ~/.ssh/id_rsa
-      
-      - name: Test SSH Connection and Execute whoami
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa deployuser@35.86.119.51 whoami
+          echo "Starting to print SSH Key..."
+          echo "$DEPLOYUSERSSHKEY"
+          echo "Finished printing SSH Key."
