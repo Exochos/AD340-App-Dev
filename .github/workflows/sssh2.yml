@@ -17,7 +17,7 @@ jobs:
           echo "${{ secrets.DEPLOYUSERSSHKEY }}" > ~/.ssh/id_rsa  # Use the correct secret name
           chmod 600 ~/.ssh/id_rsa
           cat ~/.ssh/id_rsa
-          ssh-keygen -l -f ~/.ssh/private.key
+          ssh-keygen -l -f ~/.ssh/id_rsa
 
         env:
           DEPLOYUSERSSHKEY: ${{ secrets.DEPLOYUSERSSHKEY }}
