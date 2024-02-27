@@ -19,4 +19,4 @@ jobs:
           ssh-keyscan 35.86.119.51 >> ~/.ssh/known_hosts
       - name: Test SSH and sudo
         run: |
-          ssh -i ~/.ssh/id_rsa deployuser@35.86.119.51 "sudo whoami"
+          ssh -vvv -i ~/.ssh/id_rsa deployuser@35.86.119.51 "sudo whoami"
